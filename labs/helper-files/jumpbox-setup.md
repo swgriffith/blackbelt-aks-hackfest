@@ -6,15 +6,17 @@ Run the following:
 ```
 RG=<Insert Resource Group Name>
 VMName=<Insert Lab VM Name>
-az group create -n Hackfest -l eastus2
-az vm create -g Hackfest -n labvm --image Centos --generate-ssh-keys
+LOC=<Insert Azure Region>
+az group create -n $RG -l $LOC
+az vm create -g $RG -n $VMName --image Centos --generate-ssh-keys --verbose
 
-az vm extension set '
-  --resource-group $RG `
-  --vm-name $VMName `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/swgriffith/blackbelt-aks-hackfest/master/labs/helper-files/setup.sh"],"commandToExecute": "./setup.sh"}'
+az vm extension set \
+  --resource-group $RG \
+  --vm-name $VMName \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/swgriffith/blackbelt-aks-hackfest/master/labs/helper-files/setup.sh"], "commandToExecute": "./setup.sh"}' \
+  --verbose
 ```
 
 
