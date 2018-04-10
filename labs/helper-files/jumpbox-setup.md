@@ -1,3 +1,14 @@
+## Create Jumpbox VM
+Open the Azure Cloud Shell
+https://shell.azure.com
+
+Run the following:
+```
+az group create -n Hackfest -l eastus2
+az vm create -g Hackfest -n labvm --image Centos --generate-ssh-keys
+```
+
+
 ## Jumpbox updates
 
 Internal use only
@@ -28,7 +39,47 @@ gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ## Update tools (eg AZ CLI)
 
 Avoid version 2.4 since it has a bug. Use version 2.3
-`sudo yum install azure-cli-2.0.23-1.el7` 
+
+```
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+
+sudo yum install azure-cli-2.0.23-1.el7
+```
+
+## Install Docker
+
+```
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum install docker-ce
+
+sudo systemctl start docker
+
+sudo usermod -aG docker stephen
+```
+Log out and back in to refresh groups
+
+## Install Git
+```
+sudo yum install git
+```
+
+## Install NodeJS & NPM
+
+```
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo yum -y install nodejs
+
+```
+
 
 ## Clean up Docker
 
@@ -36,3 +87,4 @@ Avoid version 2.4 since it has a bug. Use version 2.3
 docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images)
 ```
+
