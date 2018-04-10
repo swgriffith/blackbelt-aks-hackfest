@@ -1,0 +1,4 @@
+{
+  "fileUris": ["https://raw.githubusercontent.com/swgriffith/blackbelt-aks-hackfest/master/labs/helper-files/setup.sh"],
+  "commandToExecute": "./setup.sh"
+}
