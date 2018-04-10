@@ -5,7 +5,7 @@ sh -c 'echo -e "[mongodb-org-3.6]\nname=MongoDB Repository\nbaseurl=https://repo
 yum install -y mongodb-org
 
 #Change mongo port
-sed -i -e 's/270179/270917/g' /etc/mongod.conf
+sed -i -e 's/27017/27019/g' /etc/mongod.conf
 systemctl start mongod
 
 echo "***Mongo install complete\n"
