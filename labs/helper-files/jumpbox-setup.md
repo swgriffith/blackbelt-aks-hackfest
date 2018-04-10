@@ -4,8 +4,17 @@ https://shell.azure.com
 
 Run the following:
 ```
+RG=<Insert Resource Group Name>
+VMName=<Insert Lab VM Name>
 az group create -n Hackfest -l eastus2
 az vm create -g Hackfest -n labvm --image Centos --generate-ssh-keys
+
+az vm extension set '
+  --resource-group $RG `
+  --vm-name $VMName `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/swgriffith/blackbelt-aks-hackfest/master/labs/helper-files/setup.sh"],"commandToExecute": "./setup.sh"}'
 ```
 
 
