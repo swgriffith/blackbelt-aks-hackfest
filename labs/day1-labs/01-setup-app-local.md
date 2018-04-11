@@ -20,7 +20,7 @@ Once you have accessed the jumpbox, you must clone the workshop repo to the mach
 2. Clone the Github repo via the command line
 
     ```
-    git clone https://github.com/Azure/blackbelt-aks-hackfest.git
+    git clone https://github.com/swgriffith/blackbelt-aks-hackfest.git
     ```
 
 ## Get Applications up and running
@@ -71,7 +71,10 @@ The web frontend for the app is written in [Vue.js](https://vuejs.org/Vue "Vue.j
     ```
 3. Test the web front-end
 
-    The jumpbox has an external DNS name and port 8080 is open. You can browse your running app with a link such as: http://jump-vm-csc4f653357f-q72zm5c4ggcza.eastus.cloudapp.azure.com:8080 
+    The jumpbox has an external DNS name and port 8080 is open. You can browse your running app with a link such as http://[vmname].[region].cloudapp.azure.com:8080 
+     (ex. http://labvm.eastus.cloudapp.azure.com:8080)
+
+    Note: You can get your DNS name from the Azure portal by going to the VM or the public IP object in your resource group.
 
     You can also test from a new terminal session in the jumpbox
     ```bash
