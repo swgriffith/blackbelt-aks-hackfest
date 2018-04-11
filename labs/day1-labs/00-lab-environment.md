@@ -38,7 +38,7 @@ ssh <insert public ip>
 ```
 
 ## Option: Docker without sudo
-If you want to run docker without 'sudo' on ever command you need to add your user to the docker group as follows:
+If you want to run docker without 'sudo' on every command you need to add your user to the docker group as follows:
 
 ```
 sudo usermod -aG $USER 
