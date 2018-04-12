@@ -14,14 +14,14 @@ Command-Line Proxy
 * Open a terminal
 * Run ```sudo az aks install-cli``` to install the kubectl kubernetes command line interface
 * Run ```az login``` to authenticate with Azure in order to use Azure CLI in the Jumpbox instead of Cloud Shell
-    * Run ```az aks list -o table``` to get the info on your aks cluster
-    * Run ```RG=[Insert Resource Group Name]```
-    * Run ```CLUSTER_NAME=[Insert the name of your cluster]```
-    * Run ```az aks get-credentials -n $CLUSTER_NAME -g $RG``` in order to get the credentials to access our managed Kubernetes cluster in Azure
-    * Run ```kubectl get nodes``` to confirm you're connected to your cluster
-    * Run ```kubectl proxy```
-    * This creates a local proxy to 127.0.0.1:8001
-    * Open a web browser (Firefox is pre-installed on the Jumpbox) and point to: <http://127.0.0.1:8001/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard/#!/cluster?namespace=default>
+* Run ```az aks list -o table``` to get the info on your aks cluster
+* Run ```RG=[Insert Resource Group Name]```
+* Run ```CLUSTER_NAME=[Insert the name of your cluster]```
+* Run ```az aks get-credentials -n $CLUSTER_NAME -g $RG``` in order to get the credentials to access our managed Kubernetes cluster in Azure
+* Run ```kubectl get nodes``` to confirm you're connected to your cluster
+* Run ```kubectl proxy```
+* This creates a local proxy to 127.0.0.1:8001
+* Open a web browser (Firefox is pre-installed on the Jumpbox) and point to: <http://127.0.0.1:8001/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard/#!/cluster?namespace=default>
 
 ### Explore Kubernetes Dashboard
 
