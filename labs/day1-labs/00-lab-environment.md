@@ -56,7 +56,7 @@ sudo passwd $USER
 ```
 
 ## Option: Docker without sudo
-If you want to run docker without 'sudo' on ever command you need to add your user to the docker group as follows:
+If you want to run docker without 'sudo' on every command you need to add your user to the docker group as follows:
 
 ```
 sudo usermod -aG $USER 
@@ -84,16 +84,3 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
-## Self-guided
-
-It is possible to use your own machine outside of the classroom. You will need the following in order to complete these labs: 
-
-* Azure subscription
-* Linux, Mac, or Windows with Bash
-* Docker
-* Azure CLI
-* Visual Studio Code
-* Helm
-* Kubernetes CLI (kubectl)
-* MongoDB (only lab #1 requires this)
-* GitHub account and git tools
