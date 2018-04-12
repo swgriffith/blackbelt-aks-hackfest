@@ -8,13 +8,17 @@ The Kubernetes dashboard is a web ui that lets you view, monitor, and troublesho
 
 There are multiple ways of accessing Kubernetes dashboard. You can access through kubectl command-line interface or through the master server API. We'll be using kubectl, as it provides a secure connection, that doesn't expose the UI to the internet.
 
-1. Command-Line Proxy
+Command-Line Proxy
 
-    * Open an RDP session to the jumpbox IP with username and password
-    * Run ```az login``` to authenticate with Azure in order to use Azure CLI in the Jumpbox instead of Cloud Shell
-    * Run ```NAME=$(az group list -o table | grep ODL | awk '{print $1}')``` in order to retrieve the name of the resource group for your Azure account and put it in the NAME variable.
-    * Run ```CLUSTER_NAME="${NAME//_}"``` in order to retrieve the cluster name (to remove the underscore)
-    * Run ```az aks get-credentials -n $CLUSTER_NAME -g $NAME``` in order to get the credentials to access our managed Kubernetes cluster in Azure
+* Open an RDP session to the jumpbox IP with username and password
+* Open a terminal
+* Run ```sudo az aks install-cli``` to install the kubectl kubernetes command line interface
+* Run ```az login``` to authenticate with Azure in order to use Azure CLI in the Jumpbox instead of Cloud Shell
+    * Run ```az aks list -o table``` to get the info on your aks cluster
+    * Run ```RG=[Insert Resource Group Name]```
+    * Run ```CLUSTER_NAME=[Insert the name of your cluster]```
+    * Run ```az aks get-credentials -n $CLUSTER_NAME -g $RG``` in order to get the credentials to access our managed Kubernetes cluster in Azure
+    * Run ```kubectl get nodes``` to confirm you're connected to your cluster
     * Run ```kubectl proxy```
     * This creates a local proxy to 127.0.0.1:8001
     * Open a web browser (Firefox is pre-installed on the Jumpbox) and point to: <http://127.0.0.1:8001/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard/#!/cluster?namespace=default>

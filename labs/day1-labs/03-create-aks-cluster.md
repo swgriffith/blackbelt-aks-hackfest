@@ -2,7 +2,7 @@
 
 ## Create AKS cluster
 
-1. Login to Azure Portal at http://portal.azure.com. Your Azure login ID will look something like `odl_user_9294@gbbossteamoutlook.onmicrosoft.com`
+1. Login to Azure Portal at http://portal.azure.com. 
 2. Open the Azure Cloud Shell
 
     ![Azure Cloud Shell](img/cloudshell.png "Azure Cloud Shell")
@@ -18,13 +18,13 @@
     
 6. Verify your subscription is correctly selected as the default
     ```
-    az account list
+    az account list -o table
     ```
 
 7. Find your RG name
 
     ```
-    az group list 
+    az group list
     ```
     
     ```
@@ -49,23 +49,30 @@
 
     # copy the name from the results above and set to a variable 
     
-    NAME=
+    RG=
 
     # We need to use a different cluster name, as sometimes the name in the group list has an underscore, and only dashes are permitted
     
-    CLUSTER_NAME="${NAME//_}"
+    CLUSTER_NAME=[Enter a Unique Name]
+
+    # set the location to one of the provided AKS locations (eg - centralus, eastus)
+    LOC=[Enter an Azure location]
     
     ```
 
 8. Create your AKS cluster in the resource group created above with 2 nodes, targeting Kubernetes version 1.7.7
     ```
     # This command can take 5-25 minutes to run as it is creating the AKS cluster. Please be PATIENT...
-    
-    # set the location to one of the provided AKS locations (eg - centralus, eastus)
-    LOCATION=
-
-    az aks create -n $CLUSTER_NAME -g $NAME -c 2 -k 1.7.7 --generate-ssh-keys -l $LOCATION
+        
+    az aks create -n $CLUSTER_NAME -g $RG -c 2 -k 1.7.7 --generate-ssh-keys -l $LOC
     ```
+    > Note: If you get the following error you will need to manually pass in the service principal and client secret as seen below.
+    >
+    > **Error:** *Directory permission is needed for the current user to register the application*
+    >
+    >az aks create -n $CLUSTER_NAME -g $RG -c 2 -k 1.7.7 --generate-ssh-keys -l $LOC --service-principal [insert service principal id] --client-secret [insert client secret]
+
+
 
 9. Verify your cluster status. The `ProvisioningState` should be `Succeeded`
     ```
@@ -79,7 +86,7 @@
 
 10. Get the Kubernetes config files for your new AKS cluster
     ```
-    az aks get-credentials -n $CLUSTER_NAME -g $NAME
+    az aks get-credentials -n $CLUSTER_NAME -g $RG
     ```
 
 11. Verify you have API access to your new AKS cluster

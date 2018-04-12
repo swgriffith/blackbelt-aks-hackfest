@@ -125,6 +125,9 @@ kubectl create secret docker-registry acr-secret --docker-server=$ACR_SERVER --d
     mongodb      ClusterIP      10.0.5.133    <none>           27017/TCP        5m
     web          LoadBalancer   10.0.54.206   52.165.235.114   8080:32404/TCP   5m
     ```
+>Linux Pro Tip: Use the 'watch' command rather than continually executing the same command when waiting for the service public ip.
+>
+> watch kubectl get svc
 
 * Browse to the External IP for your web application (on port 8080) and try the app
 
