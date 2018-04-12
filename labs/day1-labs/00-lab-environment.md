@@ -28,6 +28,9 @@ az vm create -g $RG -n $VMName --image Centos --generate-ssh-keys --public-ip-ad
 #Open the port for the web application in the Azure Network Security Group
 az vm open-port --resource-group $RG --name $VMName --port 8080
 
+$Open the port for RDP into the Lab VM
+az vm open-port --resource-group $RG --name $VMName --port 3389
+
 #Execute the setup script to install required components
 az vm extension set \
   --resource-group $RG \
