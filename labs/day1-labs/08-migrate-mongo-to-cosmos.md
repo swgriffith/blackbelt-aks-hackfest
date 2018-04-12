@@ -41,16 +41,13 @@ In this section we will use the ```mongodump``` and ```mongorestore``` commands 
 1. Exec into mongoDB pod and export data
 	```
 	# list pods in the cluster and set the variable to your pod name
-	kubectl get pod
-	NAME                                                              READY     STATUS    RESTARTS   AGE
-	heroes-api-deploy-1140957751-v2pqc                                1/1       Running   0          20h
-	heroes-db-deploy-2357291595-xb4xm                                 1/1       Running   0          20h
-	heroes-web-3683626428-9m8wp                                       1/1       Running   0          20h
-
-	MONGO_POD=heroes-db-deploy-2357291595-xb4xm
+	kubectl get pod | grep heroes-db
+	
+	MONGO_POD=[Insert Pod Name]
 
 	kubectl exec -it $MONGO_POD bash
 
+	#Run mongodump
 	root@heroes-db-deploy-2357291595-xb4xm:/# mongodump
 
 	# validate the the export was successful

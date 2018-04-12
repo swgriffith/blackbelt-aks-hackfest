@@ -25,6 +25,7 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 
 yum install -y docker-ce
 
+systemctl enable docker
 systemctl start docker
 echo "***Done Installing Docker\n"
 

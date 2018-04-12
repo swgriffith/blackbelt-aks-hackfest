@@ -4,6 +4,8 @@ In this lab, we will make a change to the web application and then re-deploy the
 
 ## Update web application code
 
+> **Note:** The following is best run from your lab VM. 
+
 1. Use the editor of your choice and browse to `~/blackbelt-aks-hackfest/app/web/src/components/`
 2. Edit code for the `Footer.vue`
 3. Find the snippet below *(line 13)* and change the text _"Azure Global Blackbelt Team"_ to your name or whatever you would like to display.
