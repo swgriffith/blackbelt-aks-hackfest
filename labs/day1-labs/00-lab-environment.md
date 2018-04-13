@@ -23,7 +23,7 @@ LOC=<Insert Azure Region>
 az group create -n $RG -l $LOC
 
 #Create the VM
-az vm create -g $RG -n $VMName --image Centos --generate-ssh-keys --public-ip-address-dns-name $VMName --verbose
+az vm create -g $RG -n $VMName -l $LOC --image Centos --generate-ssh-keys --public-ip-address-dns-name $VMName --verbose
 
 #Open the port for the web application in the Azure Network Security Group
 az vm open-port --resource-group $RG --name $VMName --port 8080 --priority 100
