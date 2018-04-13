@@ -1,6 +1,5 @@
-
 const { events, Job, Group } = require('brigadier')
-
+//force
 events.on("push", (brigadeEvent, project) => {
     
     // setup variables
@@ -72,4 +71,3 @@ function getBranch (p) {
         return "PR"
     }
 }
-
