@@ -59,7 +59,7 @@ There are two ways to update the application with the new version. Both are desc
 
 ### Edit YAML and apply
 
-1. As we did in a prior lab, open the  `helper-files` directory and review the file `heroes-web-api.yaml`
+1. As we did in a prior lab, open the  `helper-files` directory and review the file `heroes-web-api.yaml` [Note: You may be jumping out of the LabVM if you've been editing your yaml in the cloud shell]
 2. Update the yaml file and replace the tag from `v1` to `new-version`
     ```
     spec:
