@@ -28,7 +28,7 @@ az vm create -g $RG -n $VMName -l $LOC --image Centos --generate-ssh-keys --publ
 #Open the port for the web application in the Azure Network Security Group
 az vm open-port --resource-group $RG --name $VMName --port 8080 --priority 100
 
-$Open the port for RDP into the Lab VM
+#Open the port for RDP into the Lab VM
 az vm open-port --resource-group $RG --name $VMName --port 3389 --priority 101
 
 #Execute the setup script to install required components [this will take ~20 minutes]
