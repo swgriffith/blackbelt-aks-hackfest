@@ -62,7 +62,7 @@ sudo passwd $USER
 If you want to run docker without 'sudo' on every command you need to add your user to the docker group as follows:
 
 ```
-sudo usermod -aG $USER 
+sudo usermod -aG docker $USER 
 ```
 
 ### Login to the Azure CLI
