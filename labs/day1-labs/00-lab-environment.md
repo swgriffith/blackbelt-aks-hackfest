@@ -78,12 +78,13 @@ az account list -o table
 az account set --subscription <SubscriptionID>
 ```
 
-Finally, in the Azure CLI you'll want to run the following to make sure you're registered for the providers needed for the lab:
+You're subscription must have the following providers registered. If you dont have permission to run the following then contact a subscription owner.
 
 ```
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
+az provider register -n Microsoft.ContainerRegistry
 ```
 
