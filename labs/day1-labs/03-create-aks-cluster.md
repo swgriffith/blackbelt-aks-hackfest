@@ -11,7 +11,7 @@
 
 4. Once your cloud shell is started, clone the workshop repo into the cloud shell environment
     ```
-    git clone https://github.com/Azure/blackbelt-aks-hackfest.git
+    git clone https://github.com/swgriffith/blackbelt-aks-hackfest.git
     ```
 
 5. In the cloud shell, you are automatically logged into your Azure subscription. ```az login``` is not required.
