@@ -39,8 +39,8 @@ yum -y install nodejs
 echo "***Done installing NodeJS\n"
 
 echo "***Install XFCE and XRDP for RDP Access"
-yum install epel-release -y
-yum groupinstall "Server with GUI" -y
+yum install epel-release -y 
+yum groupinstall "Server with GUI" -y &
 yum install -y xrdp -y
 systemctl enable xrdp
 systemctl start xrdp
