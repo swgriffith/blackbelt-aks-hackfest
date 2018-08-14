@@ -37,7 +37,7 @@ az vm extension set \
   --vm-name $VMName \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/swgriffith/blackbelt-aks-hackfest/master/labs/helper-files/setup.sh"], "commandToExecute": "./setup.sh"}' \
+  --settings '{"fileUris": ["https://gist.githubusercontent.com/swgriffith/f330ff4b2084fa9787109c36da831876/raw/0be290cc2042fc7baa5d9eb8c4b1e3b8601169a8/setup.sh"], "commandToExecute": "./setup.sh"}' \
   --verbose
 
 ```
